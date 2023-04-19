@@ -1,5 +1,4 @@
 # The Cinema API project
-<hr>
 
 The "Cinema-api" project is an open-source REST API written in DRF, which provides backend support 
 for managing cinema-related data such as movies, genres, actors,  showtimes, and reservations. 
@@ -10,7 +9,6 @@ The project can be used to create, update, delete, and retrieve data through its
 Additionally, it includes automated testing to ensure its functionality.
 
 # API features
-<hr>
 
 - JWT authentication 
 - Admin panel at <span style="color: rgb(255, 76, 96);">/admin/<span> 
@@ -22,7 +20,7 @@ Additionally, it includes automated testing to ensure its functionality.
 - Filtering of movies and movie sessions
 
 # Installation via GitHub
-<hr>
+
 If you don't have PostgreSQL - [install it](https://www.postgresql.org/download/) or use some remote DB such as [Elephant](https://customer.elephantsql.com/)
 
 ```shell
@@ -57,8 +55,6 @@ python manage.py runserver
 
 
 # Installation via Docker
-<hr>
-
 
 If you don't have Docker - [install it](https://docs.docker.com/get-docker/)
 ```shell
@@ -68,8 +64,7 @@ docker compose build
 docker coppose up
 ```
 
-# <p style="text-align: center;">Enjoy yor Cinema API!</p>
 <div align="center">
     <img src="https://media.giphy.com/media/t3sZxY5zS5B0z5zMIz/giphy-downsized-large.gif" alt="">
 </div>
-<hr>
+# <p style="text-align: center;">Enjoy yor Cinema API!</p>
