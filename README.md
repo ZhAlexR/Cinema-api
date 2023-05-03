@@ -38,9 +38,14 @@ POSTGRES_HOST=POSTGRES_HOST
 POSTGRES_NAME=POSTGRES_NAME
 POSTGRES_USER=POSTGRES_USER
 POSTGRES_PASSWORD=POSTGRES_PASSWORD
+
+DJANGO_SECRET_KEY=DJANGO_SECRET_KEY
+DEBUG=DEBUG
+ALLOWED_HOSTS=ALLOWED_HOSTS
 ```
-Change the part after `=` to your DB valid credentials, for example:
+Change the part after `=` to your valid credentials, for example:
 `POSTGRES_NAME=your_database_name`
+
 
 Perform the next commands to create migrations for your DB:
 ```shell
