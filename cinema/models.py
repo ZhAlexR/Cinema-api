@@ -47,6 +47,7 @@ class Movie(models.Model):
 
     class Meta:
         ordering = ["title"]
+        default_related_name = "movies"
 
     def __str__(self):
         return self.title
@@ -59,6 +60,7 @@ class MovieSession(models.Model):
 
     class Meta:
         ordering = ["-show_time"]
+        default_related_name = "movie_sessions"
 
     def __str__(self):
         return self.movie.title + " " + str(self.show_time)
@@ -70,22 +72,28 @@ class Order(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE
     )
 
-    def __str__(self):
-        return str(self.created_at)
-
     class Meta:
         ordering = ["-created_at"]
+        default_related_name = "orders"
+
+    def __str__(self):
+        return str(self.created_at)
 
 
 class Ticket(models.Model):
     movie_session = models.ForeignKey(
-        MovieSession, on_delete=models.CASCADE, related_name="tickets"
+        MovieSession, on_delete=models.CASCADE
     )
     order = models.ForeignKey(
-        Order, on_delete=models.CASCADE, related_name="tickets"
+        Order, on_delete=models.CASCADE
     )
     row = models.IntegerField()
     seat = models.IntegerField()
+
+    class Meta:
+        default_related_name = "tickets"
+        unique_together = ("movie_session", "row", "seat")
+        ordering = ["row", "seat"]
 
     @staticmethod
     def validate_ticket(row, seat, cinema_hall, error_to_raise):
@@ -128,7 +136,3 @@ class Ticket(models.Model):
         return (
             f"{str(self.movie_session)} (row: {self.row}, seat: {self.seat})"
         )
-
-    class Meta:
-        unique_together = ("movie_session", "row", "seat")
-        ordering = ["row", "seat"]
